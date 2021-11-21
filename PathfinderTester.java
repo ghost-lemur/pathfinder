@@ -16,13 +16,15 @@ public class PathfinderTester {
 		System.out.println();
 		//Fields are not traversable
 		Pathfinder p = new Pathfinder(map, true);
-		long time = System.currentTimeMillis();
+		long startTime = System.currentTimeMillis();
 		List<int[]> path = new ArrayList<int[]> (p.pathfind(8, 2, "market"));
-		System.out.println("Approximate Calculation Time: " + (System.currentTimeMillis()-time)+"ms");
+		long deltaTime = System.currentTimeMillis() - startTime;
 		System.out.println("Starting position: (8, 2)");
+		System.out.println("Objective: pathfind to closest market");
 		for(int[] psn:path)
 		{
 			System.out.println("("+psn[0]+", "+psn[1]+")");
 		}
+		System.out.println("Approximate Calculation Time: " + deltaTime +"ms");
 	}
 }
